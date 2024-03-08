@@ -8,13 +8,6 @@ create table task (
   primary key (task_id)
 ); 
 
-create table robot (
-  name char(125) not null,
-  current_task int,
-  primary key (name),
-  foreign key (current_task) references task(task_id)
-); 
-
 INSERT INTO task (description, time)
 VALUES ("Get garbage", 10);
 

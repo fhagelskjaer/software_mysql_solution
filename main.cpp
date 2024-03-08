@@ -19,21 +19,6 @@ int main(int argc, char *argv[])
     
     qDebug() << "Number of rows:" << query.size(); 
     
-    while (query.next()) {
-        int id = query.value(0).toInt();
-        QString description = query.value(1).toString();
-        int time = query.value(2).toInt();
-        qDebug() << "id:" << id << "description:" << description << "time:" << time;
-        }
-    
-    query.prepare("INSERT INTO task (description, time)"
-                  "VALUES (:description, :time)");
-                  
-    query.bindValue(":description", argv[1]);
-    query.bindValue(":time", std::stoi(argv[2]));
-    
-    qDebug() << query.exec();
-    
     qDebug() << "Finished";
     return 1;
 }
